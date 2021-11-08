@@ -30,29 +30,27 @@
                         }
                         card-img-top {
                             width: 100%;
-                            height: 100%;
+                            height: auto;
                             border-top-left-radius: calc(.25rem - 1px);
                             border-top-right-radius: calc(.25rem - 1px);
                         }
                         .card-body {
                             -ms-flex: 1 1 auto;
                             flex: 1 1 auto;
-                            padding: 0.25rem;
+                            padding: 5px;
                         }
                         .card-text{
-                          text-overflow: ellipsis;
-                          white-space: nowrap;
-                          overflow: hidden;
+                            text-align: center;
                         }
                         .card-text:last-child {
                             margin-bottom: 0;
                         }
                         .card-product {
-                            width: 23%;
-                            height: 16rem;
+                            width: 20%;
+                            height: auto;
                             display: inline-block;
                             margin: 4px 8px;
-                            padding: 1%;
+                            padding: 10px;
                             text-align: center;
                         }
                     </style>
@@ -82,14 +80,6 @@
                                             <img t-att-src="'data:image/png;base64,%s' % to_text(o.image_1920)" alt="Product" style="width: 100px;height: 100px;"/>
                                         </t>
                                     </div>
-                                    <div class="card-body">
-                                        <t t-if="o.default_code">
-                                            <span class="card-text" t-field="o.default_code" />
-                                        </t>
-                                        <t t-else="">
-                                            <span class="card-text">_</span>
-                                        </t>
-                                    </div>
                                     <div class="card-body" style="margin-top:0px;">
                                         <t t-if="o.name">
                                             <span class="card-text" t-field="o.name" />
@@ -97,23 +87,10 @@
                                     </div>
                                      <div class="card-body" style="margin-top:0px;">
                                         <t t-if="o.list_price">
-                                            <span class="card-text" t-field="o.list_price" />
+                                            Precio: <span class="card-text" t-field="o.list_price" />
                                         </t>
-                                    </div>
-                                    <div class="card-body" style="margin-top:0px;">
-                                        <t t-set="alt_text" t-value="''" />
-                                        <t t-if="o.alternative_ids">
-                                            <t t-foreach="o.alternative_ids" t-as="alt">
-                                                <t t-if="not alt.hide and alt.name">
-                                                    <t t-set="alt_text" t-value="alt_text+' '+alt.name" />
-                                                </t>
-                                            </t>
-                                        </t>
-                                        <t t-if="alt_text">
-                                            <span class="card-text" t-esc="alt_text[0:20]" />
-                                        </t>
-                                        <t t-else="">
-                                            <span class="card-text">_</span>
+                                        <t t-if="o.default_code">
+                                            SKU: <span class="card-text" t-field="o.default_code" />
                                         </t>
                                     </div>
                                 </div>
