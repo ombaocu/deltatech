@@ -76,7 +76,7 @@
                                 <div class="card-catalog card-product">
                                     <div
                                         class="card-img-top"
-                                        t-field="o.image_medium"
+                                        t-field="o.image_128"
                                         t-options='{"widget": "image"}'
                                     />
                                     <div class="card-body">
