@@ -30,6 +30,7 @@
                         }
                         card-img-top {
                             width: 100%;
+                            height: 100%;
                             border-top-left-radius: calc(.25rem - 1px);
                             border-top-right-radius: calc(.25rem - 1px);
                         }
@@ -76,9 +77,14 @@
                                 <div class="card-catalog card-product">
                                     <div
                                         class="card-img-top"
-                                        t-field="o.image_128"
-                                        t-options='{"widget": "image"}'
-                                    />
+                                    >
+                                    	<t t-if="o.image_1920">
+                                            <img t-att-src="'data:image/png;base64,%s' % to_text(o.image_1920)" alt="Product" style="width: 100px;height: 100px;"/>
+                                        </t>
+                                        <t t-else="">
+                                            <i class="fa fa-camera no-img" role="img" aria-label="Picture" title="Picture"></i>
+                                        </t>
+                                    </div>
                                     <div class="card-body">
                                         <t t-if="o.default_code">
                                             <span class="card-text" t-field="o.default_code" />
