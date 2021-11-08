@@ -81,9 +81,6 @@
                                     	<t t-if="o.image_1920">
                                             <img t-att-src="'data:image/png;base64,%s' % to_text(o.image_1920)" alt="Product" style="width: 100px;height: 100px;"/>
                                         </t>
-                                        <t t-else="">
-                                            <i class="fa fa-camera no-img" role="img" aria-label="Picture" title="Picture"></i>
-                                        </t>
                                     </div>
                                     <div class="card-body">
                                         <t t-if="o.default_code">
@@ -96,6 +93,11 @@
                                     <div class="card-body" style="margin-top:0px;">
                                         <t t-if="o.name">
                                             <span class="card-text" t-field="o.name" />
+                                        </t>
+                                    </div>
+                                     <div class="card-body" style="margin-top:0px;">
+                                        <t t-if="o.list_price">
+                                            <span class="card-text" t-field="o.list_price" />
                                         </t>
                                     </div>
                                     <div class="card-body" style="margin-top:0px;">
@@ -189,5 +191,9 @@
                 </div>
             </div>
         </div>
+    </template>
+
+    <template id="report_public_category_catalog" name="report_product_public_category_catalog">
+        <t t-call="deltatech_product_catalog.report_product_catalog" />
     </template>
 </odoo>
